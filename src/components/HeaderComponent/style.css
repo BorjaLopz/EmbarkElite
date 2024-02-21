@@ -1,0 +1,11 @@
+header {
+  min-height: 24rem;
+  height: 100%;
+  width: 100%;
+  background-color: #05203c;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
