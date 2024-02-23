@@ -7,6 +7,7 @@ const MAX_NUMBER_AIRPORTS = 6;
 function SearchAirportComponent({
   onSelectAirport,
   placeholder,
+  className = "",
   maxAirports = MAX_NUMBER_AIRPORTS,
 }) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -61,43 +62,41 @@ function SearchAirportComponent({
     );
   };
   return (
-    <>
-      <section className="inputSearchSection">
-        <input
-          type="text"
-          onChange={handleOnChangeOrigin}
-          onFocus={handleInputFocus}
-          // onBlur={handleOnBlur}
-          value={
-            selectedAirport
-              ? `${selectedAirport.name} (${selectedAirport.iata_code})`
-              : searchQuery
-          }
-          placeholder="País, ciudad o aeropuerto"
-        />
-        {selectedAirport && (
-          <button id="buttonClear" onClick={() => handleClearSelection()}>
-            <img src="/Icons/close.svg" alt="" />
-          </button>
-        )}
-        <p id="tagInput">{placeholder}</p>
+    <section className={`inputSearchSection ${className}`}>
+      <input
+        type="text"
+        onChange={handleOnChangeOrigin}
+        onFocus={handleInputFocus}
+        // onBlur={handleOnBlur}
+        value={
+          selectedAirport
+            ? `${selectedAirport.name} (${selectedAirport.iata_code})`
+            : searchQuery
+        }
+        placeholder="País, ciudad o aeropuerto"
+      />
+      {selectedAirport && (
+        <button id="buttonClear" onClick={() => handleClearSelection()}>
+          <img src="/Icons/close.svg" alt="" />
+        </button>
+      )}
+      <p id="tagInput">{placeholder}</p>
 
-        {isInputFocus && matchingAirports.length > 0 && (
-          <div id="listOfAirports">
-            <ul>
-              {matchingAirports.map((airport) => (
-                <li
-                  key={airport.code}
-                  onClick={() => handleSelectAirport(airport)}
-                >
-                  {airport.name} - {airport.city} - {airport.iata_code}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </section>
-    </>
+      {isInputFocus && matchingAirports.length > 0 && (
+        <div id="listOfAirports">
+          <ul>
+            {matchingAirports.map((airport) => (
+              <li
+                key={airport.iata_code}
+                onClick={() => handleSelectAirport(airport)}
+              >
+                {airport.name} - {airport.city} - {airport.iata_code}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
   );
 }
 

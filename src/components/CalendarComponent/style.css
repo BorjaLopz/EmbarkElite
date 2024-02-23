@@ -1,0 +1,176 @@
+.calendarContainerWithButtons {
+  --varMinWidth: 40rem;
+  --varMinHeight: 22rem;
+  min-width: var(--varMinWidth);
+  min-height: var(--varMinHeight);
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins";
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 1rem;
+  border-radius: 8px;
+
+  top: 5rem;
+  left: calc(50% - (var(--varMinWidth) / 2));
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.calendar-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+}
+
+.calendar-container .left-month,
+.calendar-container .rigth-month {
+  max-width: 100% !important;
+}
+
+.calendar-container button.changeMonthButton {
+  align-self: center;
+  min-width: 2rem;
+}
+
+.calendar-day.past-day {
+  border: none;
+  color: #707070;
+  opacity: 0.3;
+}
+
+button.changeMonthButton {
+  max-height: 2rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-month {
+  font-weight: bold;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.day-label,
+.calendar-day {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.day-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.empty-day {
+  visibility: hidden;
+}
+
+.calendar-day:not(.past-day):hover {
+  background-color: #007bff56;
+  border: #007bff solid 1px;
+  cursor: pointer;
+
+  color: rgb(165, 165, 165);
+  font-weight: bold;
+}
+
+.calendar-day.past-day:hover {
+  cursor: not-allowed;
+}
+
+.calendar-header button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5; /* Puedes ajustar la opacidad según tus preferencias */
+}
+
+/* Estilos para SearchDateComponent */
+.search-date-component {
+  position: relative;
+}
+
+.search-date-component input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Estilos adicionales para indicar cuando el calendario está abierto */
+.search-date-component input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.selected-day {
+  background-color: #ff9900; /* Cambia esto al color que desees */
+  color: #fff; /* Puedes ajustar el color del texto según tu necesidad */
+}
+
+.calendarContainerWithButtons #buttonsTravelOptions {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  justify-content: space-around;
+}
+
+.calendarContainerWithButtons #buttonsTravelOptions #selectDates {
+  min-height: 2rem;
+  min-width: 10rem;
+  max-width: 14rem;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12pt;
+  color: white;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: #007bff;
+
+  transition: all 0.3s ease;
+}
+
+.calendarContainerWithButtons #buttonsTravelOptions #selectDates:hover {
+  cursor: pointer;
+  background-color: #004a99;
+}
+
+.departureDay,
+.arrivalDay {
+  border: 1px solid #004a99;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+}
+
+.travelDayBackground {
+  background-color: #004a99;
+  opacity: 0.5; /* Ajusta según sea necesario */
+  position: absolute; /* Ajusta según sea necesario */
+  /* width: 10rem;
+  height: 10rem; */
+}

@@ -1,4 +1,12 @@
-header .inputSearchSection input {
+#dateSection {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+
+  position: relative;
+}
+
+header .dateSearchSection input {
   min-height: 5rem;
   /* text-align: center; */
   font-weight: 300;
@@ -9,15 +17,15 @@ header .inputSearchSection input {
   border: none;
 }
 
-header .inputSearchSection input:focus {
+header .dateSearchSection input:focus {
   border: 2px solid rgb(255, 0, 0);
 }
 
-header .inputSearchSection {
+header .dateSearchSection {
   position: relative;
 }
 
-.inputSearchSection #tagInput {
+.dateSearchSection #tagInput {
   position: absolute;
   top: 5%;
   left: 1rem;
@@ -25,7 +33,7 @@ header .inputSearchSection {
   font-size: 12pt;
 }
 
-.inputSearchSection #buttonClear {
+.dateSearchSection #buttonClear {
   position: absolute;
   top: calc(50% - 1rem);
   right: 5%;
@@ -37,18 +45,18 @@ header .inputSearchSection {
   background-color: transparent;
 }
 
-.inputSearchSection #buttonClear img {
+.dateSearchSection #buttonClear img {
   max-width: 100%;
   transition: all 0.3s ease;
 }
 
-.inputSearchSection #buttonClear img:hover {
+.dateSearchSection #buttonClear img:hover {
   transform: rotateZ(90deg);
   filter: contrast(150deg);
   cursor: pointer;
 }
 
-.inputSearchSection #listOfAirports {
+.dateSearchSection #listOfAirports {
   position: absolute;
   top: 100%;
   background-color: white;
@@ -73,6 +81,8 @@ header .inputSearchSection {
   border-radius: 10px;
 }
 
-#searchEngineComponents .inputSearchSection.firstSearch input {
-  border-radius: 10px 0 0 10px;
+#searchEngineComponents .dateSearchSection.lastSearch input {
+  border-radius: 0 10px 10px 0;
 }
+
+
