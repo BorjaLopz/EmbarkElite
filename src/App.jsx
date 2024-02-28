@@ -1,10 +1,15 @@
 import "./App.css";
-import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import { DepartureArrivalProvide } from "./Context/DepartureArrivalContext";
+import Header from "./pages/Header";
+import Main from "./pages/Main";
 
 function App() {
   return (
     <>
-      <HeaderComponent />
+      <DepartureArrivalProvide>
+        <Header />
+        <Main />
+      </DepartureArrivalProvide>
     </>
   );
 }

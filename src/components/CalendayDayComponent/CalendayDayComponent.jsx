@@ -11,8 +11,8 @@ function CalendayDayComponent({
 }) {
   const [isSelected, setIsSelected] = useState(false);
 
-  console.log("dates");
-  console.log(dates);
+  // console.log("dates");
+  // console.log(dates);
 
   // const handleClick = () => {
   //   const clickedDate = new Date(

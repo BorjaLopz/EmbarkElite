@@ -3,12 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./style.css";
 import CalendarComponent from "../CalendarComponent/CalendarComponent";
+import { useDepartureArrivalContext } from "../../Context/DepartureArrivalContext";
 
 function SearchDateComponent() {
   const [selectedDepartureDate, setSelectedDepartureDate] = useState(null);
   const [selectedArrivalDate, setSelectedArrivalDate] = useState(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [onlyOneWay, setOnlyOneWay] = useState(false);
+  const { setDepartureDate, setArrivalDate } = useDepartureArrivalContext();
 
   const handleCheckboxOneWay = () => {
     setOnlyOneWay(!onlyOneWay);
@@ -22,6 +24,12 @@ function SearchDateComponent() {
     console.log(`date: ${date}`);
   };
 
+  const handleClickSelectButton = () => {
+    setDepartureDate(selectedDepartureDate);
+    setArrivalDate(selectedArrivalDate);
+    setIsCalendarOpen(false);
+  };
+
   const handleSelectDate = (date) => {
     if (onlyOneWay) {
       setSelectedDepartureDate(date);
@@ -31,15 +39,19 @@ function SearchDateComponent() {
         setSelectedDepartureDate(date);
         setSelectedArrivalDate(null);
       } else if (selectedDepartureDate && !selectedArrivalDate) {
-        setSelectedArrivalDate(date);
+        if (date > selectedDepartureDate) {
+          setSelectedArrivalDate(date);
+        } else {
+          setSelectedDepartureDate(date);
+        }
       } else {
         setSelectedDepartureDate(date);
       }
     }
 
-    console.log(`date: ${date}`);
-    console.log(`selectedDepartureDate: ${selectedDepartureDate}`);
-    console.log(`selectedArrivalDate: ${selectedArrivalDate}`);
+    // console.log(`date: ${date}`);
+    // console.log(`selectedDepartureDate: ${selectedDepartureDate}`);
+    // console.log(`selectedArrivalDate: ${selectedArrivalDate}`);
   };
 
   // useEffect(() => {
@@ -117,6 +129,7 @@ function SearchDateComponent() {
               departure: selectedDepartureDate,
               arrival: selectedArrivalDate,
             }}
+            handleClickSelectButton={handleClickSelectButton}
           />
         )}
       </section>

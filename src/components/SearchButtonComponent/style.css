@@ -1,0 +1,24 @@
+#buttonSearch {
+  margin-left: 4rem;
+  min-width: 6rem;
+  max-width: 8rem;
+
+  text-transform: uppercase;
+
+  background-color: #007bff;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12pt;
+  color: white;
+  border-radius: 0.4rem;
+  border: none;
+  background-color: #007bff;
+
+  transition: all 0.3s ease;
+}
+
+#buttonSearch:hover {
+  cursor: pointer;
+  background-color: #004a99;
+}

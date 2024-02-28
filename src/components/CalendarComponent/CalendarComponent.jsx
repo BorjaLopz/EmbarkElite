@@ -10,6 +10,7 @@ function CalendarComponent({
   handleArrivalDate,
   handleCheckboxOneWay,
   dates,
+  handleClickSelectButton,
 }) {
   // console.log(`selectedDeparture en CalendarComponent: ${selectedDeparture}`);
 
@@ -17,8 +18,6 @@ function CalendarComponent({
     selectedDeparture || initialSelectedDate
   );
   const [onlyOneWay, setOnlyOneWay] = useState(false);
-
-  const handleDateClick = () => {};
 
   const daysInMonth = (month, year) => {
     return new Date(year, month + 1, 0).getDate();
@@ -178,7 +177,9 @@ function CalendarComponent({
           onChange={handleCheckboxOneWay}
         />
         SOLO IDA
-        <button id="selectDates">seleccionar</button>
+        <button id="selectDates" onClick={handleClickSelectButton}>
+          seleccionar
+        </button>
       </section>
     </div>
   );

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import SearchAirportComponent from "../SearchAirportComponent/SearchAirportComponent";
+import SearchAirportComponentDeparture from "../SearchAirportComponentDeparture/SearchAirportComponentDeparture";
+import SearchAirportComponentArrival from "../SearchAirportComponentArrival/SearchAirportComponentArrival";
 import SearchDateComponent from "../SearchDateComponent/SearchDateComponent";
 import "./style.css";
+import SearchButtonComponent from "../SearchButtonComponent/SearchButtonComponent";
 
 function SearchComponent() {
   const [selectedAirports, setSelectedAirports] = useState([]);
@@ -13,20 +15,21 @@ function SearchComponent() {
 
   return (
     <section id="searchEngineComponents">
-      <SearchAirportComponent
+      <SearchAirportComponentDeparture
         onSelectAirport={handleSelectAirport}
         placeholder={"Desde"}
         maxAirports={3}
         className="firstSearch"
       />
 
-      <SearchAirportComponent
+      <SearchAirportComponentArrival
         onSelectAirport={handleSelectAirport}
         placeholder={"A"}
         maxAirports={3}
       />
 
-      <SearchDateComponent placeholder={"Ida"} />
+      <SearchDateComponent />
+      <SearchButtonComponent />
     </section>
   );
 }
